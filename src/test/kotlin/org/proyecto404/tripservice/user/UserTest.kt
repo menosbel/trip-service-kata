@@ -1,4 +1,4 @@
-package org.proyecto404.tripservice
+package org.proyecto404.tripservice.user
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
