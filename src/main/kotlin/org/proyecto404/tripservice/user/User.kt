@@ -4,7 +4,6 @@ import org.proyecto404.tripservice.trip.Trip
 import java.util.*
 
 class User {
-
     private val _trips: MutableList<Trip> = ArrayList()
     val trips: List<Trip>
         get() = _trips
