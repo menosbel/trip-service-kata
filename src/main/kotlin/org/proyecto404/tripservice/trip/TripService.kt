@@ -1,15 +1,14 @@
 package org.proyecto404.tripservice.trip
 
 import org.proyecto404.tripservice.exception.UserNotLoggedInException
+import org.proyecto404.tripservice.user.Session
 import org.proyecto404.tripservice.user.User
-import org.proyecto404.tripservice.user.UserSession
 import java.util.*
 
-class TripService {
-
+class TripService(private val session: Session) {
     fun getTripsByUser(user: User): List<Trip> {
         var tripList: List<Trip> = ArrayList<Trip>()
-        val loggedUser: User? = UserSession.instance.loggedUser
+        val loggedUser: User? = session.loggedUser
         var isFriend: Boolean = false
         if (loggedUser != null) {
             for (friend in user.friends) {

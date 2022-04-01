@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.proyecto404.tripservice.trip.TripServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-01T18:56:29" hostname="DESKTOP-N2AL6VB" time="0.014">
+<testsuite name="org.proyecto404.tripservice.trip.TripServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-04-01T19:56:52" hostname="DESKTOP-N2AL6VB" time="0.205">
   <properties/>
-  <testcase name="fail if user is not logged in()" classname="org.proyecto404.tripservice.trip.TripServiceTest" time="0.014"/>
+  <testcase name="return empty trip list if user has no friends()" classname="org.proyecto404.tripservice.trip.TripServiceTest" time="0.173"/>
+  <testcase name="fail if collaborator is called()" classname="org.proyecto404.tripservice.trip.TripServiceTest" time="0.018"/>
+  <testcase name="fails if user has a logged in friend()" classname="org.proyecto404.tripservice.trip.TripServiceTest" time="0.005"/>
+  <testcase name="fail if user is not logged in()" classname="org.proyecto404.tripservice.trip.TripServiceTest" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

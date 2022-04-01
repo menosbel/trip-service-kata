@@ -10,5 +10,4 @@ class CollaboratorCallException(message: String?, cause: Throwable?) :
     companion object {
         private val serialVersionUID: Long = -4584041339906109902L
     }
-
 }
