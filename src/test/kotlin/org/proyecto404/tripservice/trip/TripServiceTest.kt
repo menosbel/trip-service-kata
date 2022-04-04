@@ -11,19 +11,19 @@ import org.proyecto404.tripservice.user.UserSession
 class TripServiceTest {
     @Test
     fun `fail if collaborator is called`() {
-        assertThrows<CollaboratorCallException> { TripService(UserSession.instance).getTripsByUser(User()) }
+        assertThrows<CollaboratorCallException> { TripService(UserSession.instance, TripDAO()).getTripsByUser(User()) }
     }
 
     @Test
     fun `fail if user is not logged in`() {
-        assertThrows<UserNotLoggedInException> { TripService(FakeSession()).getTripsByUser(User()) }
+        assertThrows<UserNotLoggedInException> { TripService(FakeSession(), TripDAO()).getTripsByUser(User()) }
     }
 
     @Test
     fun `return empty trip list if user has no friends`() {
         user.addFriend(friend)
 
-        val list = TripService(session).getTripsByUser(user)
+        val list = TripService(session, TripDAO()).getTripsByUser(user)
 
         assertThat(list).isEmpty()
     }
@@ -33,7 +33,7 @@ class TripServiceTest {
         user.addFriend(friend)
 
         assertThrows<CollaboratorCallException> {
-            TripService(friendSession).getTripsByUser(user)
+            TripService(friendSession, TripDAO()).getTripsByUser(user)
         }
     }
 

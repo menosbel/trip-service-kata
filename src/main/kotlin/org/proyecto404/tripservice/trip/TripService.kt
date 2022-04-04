@@ -3,13 +3,12 @@ package org.proyecto404.tripservice.trip
 import org.proyecto404.tripservice.exception.UserNotLoggedInException
 import org.proyecto404.tripservice.user.Session
 import org.proyecto404.tripservice.user.User
-import java.util.*
 
-class TripService(private val session: Session) {
+class TripService(private val session: Session, private val trips: Trips) {
     fun getTripsByUser(user: User): List<Trip> {
         var tripList: List<Trip> = ArrayList<Trip>()
         val loggedUser: User? = session.loggedUser
-        var isFriend: Boolean = false
+        var isFriend = false
         if (loggedUser != null) {
             for (friend in user.friends) {
                 if (friend == loggedUser) {
@@ -18,12 +17,11 @@ class TripService(private val session: Session) {
                 }
             }
             if (isFriend) {
-                tripList = TripDAO.findTripsByUser(user)
+                tripList = trips.findByUser(user)
             }
             return tripList
         } else {
             throw UserNotLoggedInException()
         }
     }
-
 }
